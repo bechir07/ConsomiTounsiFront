@@ -40,16 +40,29 @@ namespace ConsomiTounsiFront
                       "~/Scripts/nouislider.js",
                       "~/Scripts/custom.js"));
 
-            bundles.Add(new StyleBundle("~/template/css").Include(
-                      "~/Content/css/font-awesome.css",
-                      "~/Content/css/bootstrap.css",
-                      "~/Content/css/jquery.smartmenus.bootstrap.css",
-                      "~/Content/css/jquery.simpleLens.css",
-                      "~/Content/css/slick.css",
-                      "~/Content/css/nouislider.css",
-                      "~/Content/css/theme-color/default-theme.css",
-                      "~/Content/css/sequence-theme.modern-slide-in.css",
-                      "~/Content/css/style.css"));
+            bundles.Add(new StyleBundle("~/templateAdmin/css").Include(
+                      "~/Content/Admin/font-awesome.css",
+                      "~/Content/Admin/bootstrap.css",
+                      "~/Content/Admin/custom-styles.css",
+                      "~/Scripts/Admin/morris/morris-0.4.3.min.css",
+                      "~/Content/Admin/custom-styles.css",
+                      "~/Content/Admin/nouislider.css",
+                      "~/Content/Admin/theme-color/default-theme.css",
+                      "~/Content/Admin/sequence-theme.modern-slide-in.css",
+                      "~/Content/Admin/style.css"));
+
+            bundles.Add(new ScriptBundle("~/templateAdmin/js").Include(
+                      "~/Scripts/Admin/jquery-1.10.2.js",
+                      "~/Scripts/Admin/bootstrap.min.js",
+                      "~/Scripts/Admin/jquery.metisMenu.js",
+                      "~/Scripts/Admin/morris/raphael-2.1.0.min.js",
+                      "~/Scripts/Admin/morris/morris.js",
+                      "~/Scripts/Admin/easypiechart.js",
+                      "~/Scripts/Admin/easypiechart-data.js",
+                      "~/Scripts/Admin/Lightweight-Chart/jquery.chart.js",
+                      "~/Scripts/Admin/custom-scripts.js",
+                      "~/Scripts/Admin/Chart.min.js",
+                      "~/Scripts/Admin/chartjs.js"));
 
             #endregion
         }
