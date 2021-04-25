@@ -9,12 +9,13 @@ namespace ConsomiTounsiFront.Models
 {
     public class ADDView
     {
+        [Key]
         public long Id { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateView { get; set; }
-        /*[ForeignKey("IdUser")]
+        [ForeignKey("IdUser")]
         public int IdUser { get; set; }
-        public User User { get; set; }*/
+        public User User { get; set; }
         [ForeignKey("IdAdd")]
         public int IdAdd { get; set; }
         public Add Add { get; set; }

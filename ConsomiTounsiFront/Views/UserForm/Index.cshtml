@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<u><b>Welcome @Session["Authorization"]</b></u>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+

@@ -9,21 +9,26 @@ namespace ConsomiTounsiFront.Models
 {
     public class Product
     {
-        public long Id { get; set; }
-        public String Description { get; set; }
-        public String Name { get; set; }
-        public String Image { get; set; }
-        public double Price { get; set; }
-        public String Reference { get; set; }
+        [Key]
+        public long id { get; set; }
+        public String description { get; set; }
+        public String name { get; set; }
+        public String image { get; set; }
+        public double price { get; set; }
+        public String reference { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateProd { get; set; }
-        [ForeignKey("IdCategory")]
-        public int IdCategory { get; set; }
-        public Category Categorie { get; set; }
-        public List<Add> Add { get; set; }
-        public List<Rating> Rating { get; set; }
-        /*[ForeignKey("IdUser")]
-        public int IdUser { get; set; }
-        public User User { get; set; }*/
+        public DateTime dateProd { get; set; }
+        [ForeignKey("idCategory")]
+        public int idCategory { get; set; }
+        public Category categorie { get; set; }
+        public List<Add> add { get; set; }
+        public List<Rating> rating { get; set; }
+        [ForeignKey("IdUser")]
+        public int idUser { get; set; }
+        public User user { get; set; }
+
+        public Product()
+        {
+        }
     }
 }

@@ -9,7 +9,8 @@ namespace ConsomiTounsiFront.Models
 {
     public class Rating
     {
-        public long Id { get; set; }
+        [Key]
+        public long id { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateRating { get; set; }
         public int Note { get; set; }
@@ -18,9 +19,9 @@ namespace ConsomiTounsiFront.Models
         public int IdProduct { get; set; }
         public Product Product { get; set; }
 
-        /*[ForeignKey("IdUser")]
+        [ForeignKey("IdUser")]
         public int IdUser { get; set; }
-        public User User { get; set; }*/
+        public User User { get; set; }
 
     }
 }

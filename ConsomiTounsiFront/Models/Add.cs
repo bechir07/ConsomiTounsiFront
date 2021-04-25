@@ -9,6 +9,7 @@ namespace ConsomiTounsiFront.Models
 {
     public class Add
     {
+        [Key]
         public long Id  { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateStart { get; set; }
@@ -24,9 +25,9 @@ namespace ConsomiTounsiFront.Models
         [ForeignKey("IdProduct")]
         public int IdProduct { get; set; }
         public Product Prod { get; set; }
-        /*[ForeignKey("IdUser")]
+        [ForeignKey("IdUser")]
         public int IdUser { get; set; }
-        public User User { get; set; }*/
+        public User User { get; set; }
 
     }
 }

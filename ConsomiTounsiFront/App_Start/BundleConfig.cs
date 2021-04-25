@@ -25,6 +25,33 @@ namespace ConsomiTounsiFront
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            #region Template Desing
+
+            bundles.Add(new ScriptBundle("~/template/js").Include(
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/jquery.smartmenus.js",
+                      "~/Scripts/jquery.smartmenus.bootstrap.js",
+                      "~/Scripts/sequence.js",
+                      "~/Scripts/sequence-theme.modern-slide-in.js",
+                      "~/Scripts/jquery.simpleGallery.js",
+                      "~/Scripts/jquery.simpleLens.js",
+                      "~/Scripts/slick.js",
+                      "~/Scripts/nouislider.js",
+                      "~/Scripts/custom.js"));
+
+            bundles.Add(new StyleBundle("~/template/css").Include(
+                      "~/Content/css/font-awesome.css",
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/jquery.smartmenus.bootstrap.css",
+                      "~/Content/css/jquery.simpleLens.css",
+                      "~/Content/css/slick.css",
+                      "~/Content/css/nouislider.css",
+                      "~/Content/css/theme-color/default-theme.css",
+                      "~/Content/css/sequence-theme.modern-slide-in.css",
+                      "~/Content/css/style.css"));
+
+            #endregion
         }
     }
 }
