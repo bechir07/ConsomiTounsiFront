@@ -8,6 +8,10 @@ namespace ConsomiTounsiFront.Models
 {
     public class Jackpot
     {
+        public Jackpot()
+        {
+            this.donations = new HashSet<Donation>();
+        }
         [Key]
         public int id { get; set; }
         

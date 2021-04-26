@@ -8,6 +8,10 @@ namespace ConsomiTounsiFront.Models
 {
     public class User
     {
+        public User()
+        {
+            this.donations = new HashSet<Donation>();
+        }
 
         [Key]
         public long id { get; set; }
