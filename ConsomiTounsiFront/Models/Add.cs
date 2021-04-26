@@ -10,24 +10,23 @@ namespace ConsomiTounsiFront.Models
     public class Add
     {
         [Key]
-        public long Id  { get; set; }
+        public long id  { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateStart { get; set; }
+        public DateTime dateStart { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateEnd { get; set; }
-        public Double PriceSponsoring { get; set; }
-        public float Average { get; set; }
+        public DateTime dateEnd { get; set; }
+        public Double priceSponsoring { get; set; }
+        public float average { get; set; }
         public String Image { get; set; }
-        public int MyProperty { get; set; }
-        public String Name { get; set; }
-        public enum Type { Product_ADD, Event_ADD };
+        public String name { get; set; }
+        public enum type { Product_ADD, Event_ADD };
 
-        [ForeignKey("IdProduct")]
-        public int IdProduct { get; set; }
-        public Product Prod { get; set; }
-        [ForeignKey("IdUser")]
-        public int IdUser { get; set; }
-        public User User { get; set; }
+        [ForeignKey("idProduct")]
+        public int idProduct { get; set; }
+        public Product prod { get; set; }
+        [ForeignKey("idUser")]
+        public int idUser { get; set; }
+        public User user { get; set; }
 
     }
 }

@@ -12,16 +12,16 @@ namespace ConsomiTounsiFront.Models
         [Key]
         public long id { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateRating { get; set; }
-        public int Note { get; set; }
-        public String Review { get; set; }
-        [ ForeignKey("IdProduct")]
-        public int IdProduct { get; set; }
-        public Product Product { get; set; }
+        public DateTime dateRating { get; set; }
+        public int note { get; set; }
+        public String review { get; set; }
+        [ ForeignKey("idProduct")]
+        public int idProduct { get; set; }
+        public Product product { get; set; }
 
-        [ForeignKey("IdUser")]
-        public int IdUser { get; set; }
-        public User User { get; set; }
+        [ForeignKey("idUser")]
+        public int idUser { get; set; }
+        public User user { get; set; }
 
     }
 }

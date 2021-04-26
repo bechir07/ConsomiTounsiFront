@@ -220,11 +220,18 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\bootstrap-theme.min.css" />
+    <Content Include="Content\Admin\bootstrap.css" />
+    <Content Include="Content\Admin\checkbox3.min.css" />
+    <Content Include="Content\Admin\custom-styles.css" />
+    <Content Include="Content\Admin\font-awesome.css" />
+    <Content Include="Content\Admin\select2.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\checkbox3.min.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\jquery.simpleLens.css" />
     <Content Include="Content\css\jquery.smartmenus.bootstrap.css" />
@@ -242,6 +249,7 @@
     <Content Include="Content\css\theme-color\purple-theme.css" />
     <Content Include="Content\css\theme-color\red-theme.css" />
     <Content Include="Content\css\theme-color\yellow-theme.css" />
+    <Content Include="Content\img\bg-img.jpg" />
     <Content Include="Content\img\client-brand-css3.png" />
     <Content Include="Content\img\client-brand-html5.png" />
     <Content Include="Content\img\client-brand-java.png" />
@@ -266,6 +274,7 @@
     <Content Include="Content\img\fashion\fashion-header-bg-8.jpg" />
     <Content Include="Content\img\flag\english.jpg" />
     <Content Include="Content\img\flag\french.jpg" />
+    <Content Include="Content\img\img\bg-img.jpg" />
     <Content Include="Content\img\logo.jpg" />
     <Content Include="Content\img\man-small-1.jpg" />
     <Content Include="Content\img\man\polo-shirt-1.png" />
@@ -330,6 +339,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Admin\bootstrap.min.js" />
+    <Content Include="Scripts\Admin\chart-data.js" />
+    <Content Include="Scripts\Admin\chart.min.js" />
+    <Content Include="Scripts\Admin\chartjs.js" />
+    <Content Include="Scripts\Admin\custom-scripts.js" />
+    <Content Include="Scripts\Admin\custom.js" />
+    <Content Include="Scripts\Admin\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Scripts\Admin\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\Admin\dataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\Admin\easypiechart-data.js" />
+    <Content Include="Scripts\Admin\easypiechart.js" />
+    <Content Include="Scripts\Admin\jquery-1.10.2.js" />
+    <Content Include="Scripts\Admin\jquery.metisMenu.js" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\chart.js" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\cssCharts.css" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\index - Copy.html" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\index.html" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\jquery.chart.js" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\jquery.chart.min.js" />
+    <Content Include="Scripts\Admin\morris\morris-0.4.3.min.css" />
+    <Content Include="Scripts\Admin\morris\morris.js" />
+    <Content Include="Scripts\Admin\morris\raphael-2.1.0.min.js" />
+    <Content Include="Scripts\Admin\select2.full.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -337,6 +369,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Scripts\Admin\Lightweight-Chart\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -398,6 +432,8 @@
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

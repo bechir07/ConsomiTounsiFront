@@ -9,8 +9,8 @@ namespace ConsomiTounsiFront.Models
     public class Category
     {
         [Key]
-        public long Id { get; set; }
+        public long id { get; set; }
         public String Name { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Product> product{ get; set; }
     }
 }

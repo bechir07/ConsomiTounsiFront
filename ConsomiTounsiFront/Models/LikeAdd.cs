@@ -10,13 +10,15 @@ namespace ConsomiTounsiFront.Models
     public class LikeAdd
     {
         [Key]
-        public long Id { get; set; }
-        public bool Etat { get; set; }
-        [ForeignKey("IdUser")]
-        public int IdUser { get; set; }
-        public User User { get; set; }
-        [ForeignKey("IdAdd")]
-        public int IdAdd { get; set; }
-        public Add Add { get; set; }
+        public long id { get; set; }
+        public bool etat { get; set; }
+        [ForeignKey("idUser")]
+        public int idUser { get; set; }
+        public User user { get; set; }
+        [ForeignKey("idAdd")]
+        public int idAdd { get; set; }
+        public Add add { get; set; }
     }
+
+
 }
