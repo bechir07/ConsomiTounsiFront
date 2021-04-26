@@ -21,7 +21,7 @@ namespace ConsomiTounsiFront.Models
             get { return Password; }
             set
             {
-                if (value.Length >= 0 && value.Length <= 20) Password = value;
+                if (value.Length >= 2 && value.Length <= 20) Password = value;
                 else Console.WriteLine("Le password doit avoir une taille dans l'intervalle [5, 20]");
             }
         }

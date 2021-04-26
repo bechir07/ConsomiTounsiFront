@@ -38,7 +38,19 @@ namespace ConsomiTounsiFront
                       "~/Scripts/jquery.simpleLens.js",
                       "~/Scripts/slick.js",
                       "~/Scripts/nouislider.js",
-                      "~/Scripts/custom.js"));
+                      "~/Scripts/custom.js",
+                      "~/Scripts/jquery.validate*"));
+            
+            bundles.Add(new StyleBundle("~/template/css").Include(
+                      "~/Content/css/font-awesome.css",
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/jquery.smartmenus.bootstrap.css",
+                      "~/Content/css/jquery.simpleLens.css",
+                      "~/Content/css/slick.css",
+                      "~/Content/css/nouislider.css",
+                      "~/Content/css/theme-color/default-theme.css",
+                      "~/Content/css/sequence-theme.modern-slide-in.css",
+                      "~/Content/css/style.css"));
 
             bundles.Add(new StyleBundle("~/templateAdmin/css").Include(
                       "~/Content/Admin/font-awesome.css",
