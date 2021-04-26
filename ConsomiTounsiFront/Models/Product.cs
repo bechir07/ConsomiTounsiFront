@@ -23,7 +23,7 @@ namespace ConsomiTounsiFront.Models
         public Category categorie { get; set; }
         public List<Add> add { get; set; }
         public List<Rating> rating { get; set; }
-        [ForeignKey("IdUser")]
+        [ForeignKey("idUser")]
         public int idUser { get; set; }
         public User user { get; set; }
 

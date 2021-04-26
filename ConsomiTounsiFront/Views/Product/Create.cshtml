@@ -34,10 +34,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.image, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <<form method="POST" enctype="multipart/form-data" action="/">
-                <input type="file" name="image" />
-
-        </div>
+      <input type="file" class="form-control" placeholder="Image Produit" id=@Html.EditorFor(model => model.image)>
+</div>
     </div>
 
     <div class="form-group">
