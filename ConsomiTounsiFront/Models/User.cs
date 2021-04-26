@@ -50,5 +50,11 @@ namespace ConsomiTounsiFront.Models
         public virtual ICollection<Role> roles { get; set; }
         public virtual ICollection<Donation> donations { get; set; }
         public virtual ICollection<Event> eventsuser { get; set; }
+        public List<Product> Products { get; set; }
+        public List<ADDView> View { get; set; }
+        public List<LikeAdd> AddLike { get; set; }
+        public List<Coupon> Coupon { get; set; }
+        public List<Add> Add { get; set; }
+        public List<Rating> Rating { get; set; }
     }
 }
