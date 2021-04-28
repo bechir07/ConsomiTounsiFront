@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.delivery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add new Delivery", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.poids)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            Delivery Men Username
+        </th>
+        <th>
+            Delivery Men email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.frais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.poids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deliverMen.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deliverMen.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                <a class='btn' onclick='Delete(@item.id)'><b class='material-icons'>delete</b></a>
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts {
+
+    <script>
+        function Delete(id) {
+            //if (confirm('Are You Sure to Delete this Employee Record ?')) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this Delivery!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Deliveries/Delete/" + id
+                        });
+                        swal("Poof! Delivery has been deleted!", {
+                            icon: "success",
+                        }).then(function () {
+                            location.reload();
+                        });
+                        //location.reload();
+                    } else {
+                        swal("Delivery is safe!");
+                    }
+                });
+        }
+    </script>
+}

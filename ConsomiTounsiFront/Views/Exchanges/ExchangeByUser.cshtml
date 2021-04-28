@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.exchange>
+
+@{
+    ViewBag.Title = "ExchangeByUser";
+}
+
+<h2>ExchangeByUser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numCoupon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.couponValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateLimite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.users_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.numCoupon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.couponValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateLimite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.users_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
