@@ -23,7 +23,7 @@ namespace ConsomiTounsiFront.Controllers
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(baseAddress);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var _AccessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYWplciIsImV4cCI6MTYxOTQ5NDA3MiwiaWF0IjoxNjE5NDc2MDcyLCJhdXRob3JpdGllcyI6W119.zjmjOKrkUfxicPP6-f1MJYi7XrHm22zNnPglOD-lxYme-xE7xWAVwaAqgwpkgIASNj9bo0feSioAjPKRsvm5SA";
+            var _AccessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtb250YSIsImV4cCI6MTYxOTU1Mjk5NywiaWF0IjoxNjE5NTM0OTk3LCJhdXRob3JpdGllcyI6W119.2PXSgggyJurlJ7DpJB9RbZolw1hTkgNoM_RZ76D-RfrRSxKcDUQ-yKyCyKKGORFEPDn00YamaQyZ70NkAOwAHA";
             httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", _AccessToken));
         }
         // GET: Product

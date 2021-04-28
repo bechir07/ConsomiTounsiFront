@@ -1,0 +1,61 @@
+﻿@model ConsomiTounsiFront.Models.comment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.content_comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content_comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subject_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subject.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.users_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.users.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@{
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}

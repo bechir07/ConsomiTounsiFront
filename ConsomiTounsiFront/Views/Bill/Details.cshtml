@@ -1,0 +1,69 @@
+﻿@model ConsomiTounsiFront.Models.bill
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>bill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bill_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bill_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_of_bill)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_of_bill)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.command_reference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.command_reference)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { bill_id = Model.bill_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@{
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}

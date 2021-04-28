@@ -272,12 +272,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\ChariotController.cs" />
+    <Compile Include="Controllers\CommandController.cs" />
+    <Compile Include="Controllers\Command_lineController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JackpotController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserFormController.cs" />
@@ -288,11 +293,30 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Add.cs" />
     <Compile Include="Models\ADDView.cs" />
+    <Compile Include="Models\bill.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\command.cs" />
+    <Compile Include="Models\command_line.cs" />
+    <Compile Include="Models\comment.cs" />
+    <Compile Include="Models\ConsomiTounsiFront.Context.cs" />
+    <Compile Include="Models\ConsomiTounsiFront.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConsomiTounsiFront.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsomiTounsiFront.cs" />
+    <Compile Include="Models\ConsomiTounsiFront1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConsomiTounsiFront.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Coupon.cs" />
+    <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LikeAdd.cs" />
+    <Compile Include="Models\LikeCom.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\payment.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\Chariot.cs" />
@@ -302,6 +326,7 @@
     <Compile Include="Models\Jackpot.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\subject.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserForm.cs" />
     <Compile Include="Models\UserLogin.cs" />
@@ -428,6 +453,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\ConsomiTounsiFront.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConsomiTounsiFront.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ConsomiTounsiFront.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConsomiTounsiFront1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\Admin\bootstrap.min.js" />
     <Content Include="Scripts\Admin\chart-data.js" />
     <Content Include="Scripts\Admin\chart.min.js" />
@@ -527,6 +560,56 @@
     <Content Include="Views\Jackpot\Donate.cshtml" />
     <Content Include="Views\Donation\AddDonation.cshtml" />
     <Content Include="Views\Donation\AjoutDonation.cshtml" />
+    <Content Include="Views\Bill\Create.cshtml" />
+    <Content Include="Views\Bill\Delete.cshtml" />
+    <Content Include="Views\Bill\Details.cshtml" />
+    <Content Include="Views\Bill\Edit.cshtml" />
+    <Content Include="Views\Bill\Index.cshtml" />
+    <Content Include="Views\Command\Create.cshtml" />
+    <Content Include="Views\Command\Delete.cshtml" />
+    <Content Include="Views\Command\Details.cshtml" />
+    <Content Include="Views\Command\Edit.cshtml" />
+    <Content Include="Views\Command\Index.cshtml" />
+    <Content Include="Views\Command_line\Create.cshtml" />
+    <Content Include="Views\Command_line\Delete.cshtml" />
+    <Content Include="Views\Command_line\Details.cshtml" />
+    <Content Include="Views\Command_line\Edit.cshtml" />
+    <Content Include="Views\Command_line\Index.cshtml" />
+    <Content Include="Views\Comment\Create.cshtml" />
+    <Content Include="Views\Comment\Delete.cshtml" />
+    <Content Include="Views\Comment\Details.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Payment\Create.cshtml" />
+    <Content Include="Views\Payment\Delete.cshtml" />
+    <Content Include="Views\Payment\Details.cshtml" />
+    <Content Include="Views\Payment\Edit.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Bill\CreateB.cshtml" />
+    <Content Include="Views\Bill\DeleteB.cshtml" />
+    <Content Include="Views\Bill\DetailsB.cshtml" />
+    <Content Include="Views\Bill\EditB.cshtml" />
+    <Content Include="Views\Bill\IndexB.cshtml" />
+    <Content Include="Views\Command\CreateB.cshtml" />
+    <Content Include="Views\Command\DeleteB.cshtml" />
+    <Content Include="Views\Command\DetailsB.cshtml" />
+    <Content Include="Views\Command\EditB.cshtml" />
+    <Content Include="Views\Command\IndexB.cshtml" />
+    <Content Include="Views\Command_line\CreateB.cshtml" />
+    <Content Include="Views\Command_line\DeleteB.cshtml" />
+    <Content Include="Views\Command_line\DetailsB.cshtml" />
+    <Content Include="Views\Command_line\EditB.cshtml" />
+    <Content Include="Views\Command_line\IndexB.cshtml" />
+    <Content Include="Views\Comment\CreateB.cshtml" />
+    <Content Include="Views\Comment\DeleteB.cshtml" />
+    <Content Include="Views\Comment\DetailsB.cshtml" />
+    <Content Include="Views\Comment\EditB.cshtml" />
+    <Content Include="Views\Comment\IndexB.cshtml" />
+    <Content Include="Views\Payment\CreateB.cshtml" />
+    <Content Include="Views\Payment\DeleteB.cshtml" />
+    <Content Include="Views\Payment\DetailsB.cshtml" />
+    <Content Include="Views\Payment\EditB.cshtml" />
+    <Content Include="Views\Payment\IndexB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

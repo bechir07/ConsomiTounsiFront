@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.command_line>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Commands Lines</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_product_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.command.reference)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.command.delivery.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.command.chariot.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.command.client.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.product.id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_product_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.command.reference)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.command.delivery.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.command.chariot.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.command.client.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+@{
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}

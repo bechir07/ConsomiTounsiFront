@@ -1,0 +1,72 @@
+﻿@model ConsomiTounsiFront.Models.command
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>command</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.reference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reference)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_date)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.delivery_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delivery_id)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.client_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.chariot_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chariot_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { reference = Model.reference }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@{
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
