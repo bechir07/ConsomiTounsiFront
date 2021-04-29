@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.exchange>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.couponValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateLimite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.couponValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateLimite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.numCoupon }) |
+            @Html.ActionLink("Details", "Details", new { id=item.numCoupon }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.numCoupon })
+        </td>
+    </tr>
+}
+
+</table>

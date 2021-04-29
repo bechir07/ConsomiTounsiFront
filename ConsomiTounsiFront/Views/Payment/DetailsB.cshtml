@@ -1,0 +1,53 @@
+﻿@model ConsomiTounsiFront.Models.payment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bill_bill_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bill.bill_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditB", new { payment_id = Model.payment_id }) |
+    @Html.ActionLink("Back to List", "IndexB")
+</p>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}

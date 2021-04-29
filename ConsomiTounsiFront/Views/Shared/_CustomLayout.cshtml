@@ -249,22 +249,22 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">Kids <span class="caret"></span></a>
+                                <a href="#">Gestion de vente <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Casual</a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Formal</a></li>
-                                    <li><a href="#">Standard</a></li>
-                                    <li><a href="#">T-Shirts</a></li>
-                                    <li><a href="#">Shirts</a></li>
-                                    <li><a href="#">Jeans</a></li>
-                                    <li><a href="#">Trousers</a></li>
+                                    <li><a href="../Command_line/Index">Commande Line</a></li>
+                                    <li><a href="../Command/Index">Commands</a></li>
+                                    <li><a href="../Bill/Index">Bills</a></li>
+                                    <li><a href="../Comment/Index">Comments</a></li>
+                                    <li><a href="../Payment/Index">Payments</a></li>
                                     <li>
-                                        <a href="#">And more.. <span class="caret"></span></a>
+                                        <a href="#">Creation <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Sleep Wear</a></li>
-                                            <li><a href="#">Sandals</a></li>
-                                            <li><a href="#">Loafers</a></li>
+                                            <li><a href="../Bill/Create">Add a new Bill</a></li>
+                                            <li><a href="../Command/Create">Add a new Command</a></li>
+                                            <li><a href="../Command_Line/Create">Add a new Command Line</a></li>
+                                            <li><a href="../Comment/Create">Add a new Comment</a></li>
+                                            <li><a href="../Payment/Create">Add a new Payment</a></li>
+
                                         </ul>
                                     </li>
                                 </ul>
@@ -483,6 +483,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     @Scripts.Render("~/template/js")
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>

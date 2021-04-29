@@ -1,0 +1,138 @@
+﻿@model ConsomiTounsiFront.Models.DeliveryMen
+
+@{
+    ViewBag.Title = "edit";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>delivery_men</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.available, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.available)
+                    @Html.ValidationMessageFor(model => model.available, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.prime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.prime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.prime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group" hidden="hidden">
+            <div class="col-md-10">
+                <input name="lat" class="form-control" type="text" id="lat" hidden="hidden" />
+                @Html.ValidationMessageFor(model => model.latitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" hidden="hidden">
+            <div class="col-md-10">
+                <input name="lon" class="form-control" type="text" id="lon" hidden="hidden" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" id="btn" onclick="getCoordintes();" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function getCoordintes() {
+            var options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+
+            function success(pos) {
+                var crd = pos.coords;
+                var lat = crd.latitude.toString();
+                var lng = crd.longitude.toString();
+                var coordinates = [lat, lng];
+                $('#lat').val(lat);
+                $('#lon').val(lng);
+                console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+                getCity(coordinates);
+                return;
+
+            }
+
+            function error(err) {
+                console.warn(`ERROR(${err.code}): ${err.message}`);
+            }
+
+            navigator.geolocation.getCurrentPosition(success, error, options);
+        }
+
+        // Step 2: Get city name
+        function getCity(coordinates) {
+            var xhr = new XMLHttpRequest();
+            var lat = coordinates[0];
+            var lng = coordinates[1];
+
+            // Paste your LocationIQ token below.
+            xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key=pk.de0a7bf1c92e89c05fe1ea400fd9629e	&lat=" +
+                lat + "&lon=" + lng + "&format=json", true);
+            xhr.send();
+            xhr.onreadystatechange = processRequest;
+            xhr.addEventListener("readystatechange", processRequest, false);
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var city = response.address.city;
+                    console.log(city);
+                    return;
+                }
+            }
+        }
+
+        getCoordintes();
+        $("#btn").click(function () {
+            getCoordintes();
+        });
+    </script>
+}
+
+
+

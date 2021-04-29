@@ -1,0 +1,135 @@
+﻿@model ConsomiTounsiFront.Models.reclamation
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Decision", "Reclamations", FormMethod.Post, new { id = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>reclamation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.Label("Date réclamation:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateLimit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dateLimit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.decision, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="decision" name="decision">
+                    <option>Pending</option>
+                    <option>Echange</option>
+                    <option>Réparation</option>
+                    <option>Remboursement</option>
+                    <option>Refusé</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.objet, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.objet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.objet, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.state, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.state)
+                    @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.typeReclamation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.typeReclamation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.typeReclamation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group" id="echange" style="display: none;">
+            @Html.Label("Coupon valeur:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="couponValue" />
+            </div>
+        </div>
+
+        <div class="form-group" id="reparation" style="display: none;">
+            <div class="form-group">
+                @Html.Label("Id du produit:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="idProduct" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Type de panne:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="typePanne" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Prix réparation:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="prixReparation" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $("#decision").on("change", function () {
+            if ($("#decision option:selected").index() == 0) {
+                $("#reparation").hide();
+                $("#echange").hide();
+            } else if ($("#decision option:selected").index() == 1) {
+                $("#echange").show();
+                $("#reparation").hide();
+            }
+            else if ($("#decision option:selected").index() == 2) {
+                $("#reparation").show();
+                $("#echange").hide();
+            }
+            else if ($("#decision option:selected").index() == 3) {
+                $("#reparation").hide();
+                $("#echange").hide();
+            } else {
+                $("#reparation").hide();
+                $("#echange").hide();
+            }
+        });
+    </script>
+}

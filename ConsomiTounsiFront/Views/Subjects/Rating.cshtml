@@ -1,0 +1,53 @@
+﻿@model ConsomiTounsiFront.Models.subject
+
+@{
+    ViewBag.Title = "Rating";
+}
+
+<h2>Rating</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>subject</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.category)
+    @Html.HiddenFor(model => model.dateSubject)
+    @Html.HiddenFor(model => model.description)
+    @Html.HiddenFor(model => model.subjectName)
+    @Html.HiddenFor(model => model.evaluate)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.evaluate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control" id="nbEtoiles" name="nbEtoiles">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

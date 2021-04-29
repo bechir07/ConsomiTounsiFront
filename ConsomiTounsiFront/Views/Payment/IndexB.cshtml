@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.payment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.payment_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payment_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payment_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bill_bill_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bill.bill_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditB", new { payment_id = item.payment_id }) |
+                @Html.ActionLink("Details", "DetailsB", new { payment_id = item.payment_id }) |
+                @Html.ActionLink("Delete", "DeleteB", new { payment_id = item.payment_id })
+            </td>
+        </tr>
+    }
+
+  
+</table>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}

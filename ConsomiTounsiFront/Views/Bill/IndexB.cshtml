@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.bill>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bill_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_of_bill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.payment_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.command.reference)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bill_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_of_bill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.command.reference)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditB", new { bill_id = item.bill_id }) |
+                @Html.ActionLink("Details", "DetailsB", new { bill_id = item.bill_id }) |
+                @Html.ActionLink("Delete", "DeleteB", new { bill_id = item.bill_id })
+            </td>
+        </tr>
+    }
+
+  
+
+    
+    
+
+
+</table>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+

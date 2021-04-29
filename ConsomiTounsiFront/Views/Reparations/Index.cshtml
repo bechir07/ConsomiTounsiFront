@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.reparation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dateReparation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prixReparation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typePanne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateReparation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prixReparation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typePanne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                <a class='btn' onclick='Delete(@item.id)'><b class='material-icons'>delete</b></a>  
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts {
+
+<script>
+    function Delete(id) {
+        //if (confirm('Are You Sure to Delete this Employee Record ?')) {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Reparation!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reparations/Delete/" + id
+                    });
+                    swal("Poof! Reparation has been deleted!", {
+                        icon: "success",
+                    }).then(function () {
+                        location.reload();
+                    });
+                    //location.reload();
+                } else {
+                    swal("Reparation is safe!");
+                }
+            });
+    }
+</script>
+        }

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.reclamation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add new Reclamation", "Create")
+</p>
+<table class="table" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dateLimit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.decision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.objet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeReclamation)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.decision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.objet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeReclamation)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Decison", "Decision", new { id = item.id }) |
+                <a class='btn' onclick='Delete(@item.id)'><b class='material-icons'>delete</b></a>
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts {
+    
+    <script>
+
+        function Delete(id) {
+            //if (confirm('Are You Sure to Delete this Employee Record ?')) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this Reclamation!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Reclamations/Delete/" + id
+                        });
+                        swal("Poof! Reclamation has been deleted!", {
+                            icon: "success",
+                        }).then(function () {
+                            location.reload();
+                        });
+                        //location.reload();
+                    } else {
+                        swal("Reclamation is safe!");
+                    }
+                });
+        }
+    </script>
+}

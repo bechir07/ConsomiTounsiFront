@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Comments</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.content_comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subject_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.users_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.content_comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subject.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.users.id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+@{
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}

@@ -1,0 +1,150 @@
+﻿@model IEnumerable<ConsomiTounsiFront.Models.DeliveryMen>
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+}
+
+<h2>Plus Proche Delivery Men</h2>
+<div class="form-group" hidden="hidden">
+    <div class="col-md-10">
+        <input name="lat" class="form-control" type="text" id="lat" hidden="hidden" />
+    </div>
+</div>
+<div class="form-group" hidden="hidden">
+    <div class="col-md-10">
+        <input name="lat" class="form-control" type="text" id="lon" hidden="hidden" />
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.available)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prime)
+            </td>
+            <td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                <a class='btn' onclick='Delete(@item.id)'><b class='material-icons'>delete</b></a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function getCoordintes() {
+            var options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+
+            function success(pos) {
+                var crd = pos.coords;
+                var lat = crd.latitude.toString();
+                var lng = crd.longitude.toString();
+                var coordinates = [lat, lng];
+                $('#lat').val(lat);
+                $('#lon').val(lng);
+                console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+                getCity(coordinates);
+                return;
+
+            }
+
+            function error(err) {
+                console.warn(`ERROR(${err.code}): ${err.message}`);
+            }
+
+            navigator.geolocation.getCurrentPosition(success, error, options);
+        }
+
+        // Step 2: Get city name
+        function getCity(coordinates) {
+            var xhr = new XMLHttpRequest();
+            var lat = coordinates[0];
+            var lng = coordinates[1];
+
+            // Paste your LocationIQ token below.
+            xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key=pk.de0a7bf1c92e89c05fe1ea400fd9629e	&lat=" +
+                lat + "&lon=" + lng + "&format=json", true);
+            xhr.send();
+            xhr.onreadystatechange = processRequest;
+            xhr.addEventListener("readystatechange", processRequest, false);
+
+            function processRequest(e) {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var city = response.address.city;
+                    console.log(city);
+                    return;
+                }
+            }
+        }
+
+        getCoordintes();
+        $("#btn").click(function () {
+            getCoordintes();
+        });
+
+        function Delete(id) {
+            //if (confirm('Are You Sure to Delete this Employee Record ?')) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this Delivery Men!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/DeliveryMen/Delete/" + id
+                        });
+                        swal("Poof! Delivery Men has been deleted!", {
+                            icon: "success",
+                        }).then(function () {
+                            location.reload();
+                        });
+                        //location.reload();
+                    } else {
+                        swal("Delivery Men is safe!");
+                    }
+    </script>
+}
+
+
