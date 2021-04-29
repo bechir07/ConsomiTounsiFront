@@ -61,10 +61,13 @@ namespace ConsomiTounsiFront
                       "~/Content/Admin/nouislider.css",
                       "~/Content/Admin/theme-color/default-theme.css",
                       "~/Content/Admin/sequence-theme.modern-slide-in.css",
+                      "~/Content/Admin/select2.min.css",
+                      "~/Content/Admin/checkbox3.min.css",
                       "~/Content/Admin/style.css"));
 
             bundles.Add(new ScriptBundle("~/templateAdmin/js").Include(
                       "~/Scripts/Admin/jquery-1.10.2.js",
+                      "~/Scripts/Admin/select2.full.min.js",
                       "~/Scripts/Admin/bootstrap.min.js",
                       "~/Scripts/Admin/jquery.metisMenu.js",
                       "~/Scripts/Admin/morris/raphael-2.1.0.min.js",

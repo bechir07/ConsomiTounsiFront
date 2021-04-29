@@ -13,7 +13,7 @@ namespace ConsomiTounsiFront.Models
             this.donations = new HashSet<Donation>();
         }
         [Key]
-        public int id { get; set; }
+        public int JackpotId { get; set; }
         
 
         [Required(ErrorMessage = "Name jackpot Required")]

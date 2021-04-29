@@ -2453,7 +2453,7 @@ img {
   min-width: 250px;
   padding: 12px 30px;
   text-decoration: none;
-  text-transform: uppercase;
+  
   width: 100%;
 }
 #checkout .checkout-area .checkout-left .panel-group .aa-checkout-coupon input[type="submit"] {

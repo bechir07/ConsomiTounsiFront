@@ -13,15 +13,18 @@ namespace ConsomiTounsiFront.Controllers
     {
         HttpClient httpClient;
         string baseAddress;
-        public UserController()
+        String _AccessToken;
+        protected override void OnActionExecuting(ActionExecutingContext ctx)
         {
+            base.OnActionExecuting(ctx);
+
+            _AccessToken = ctx.HttpContext.Session["AccessToken"].ToString();
             baseAddress = "http://localhost:8081/ConsomiTounsi/";
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(baseAddress);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             //var _AccessToken = Session["AccessToken"];
-            //httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", _AccessToken));
-
+            httpClient.DefaultRequestHeaders.Add("Authorization", String.Format(_AccessToken));
         }
         // GET: User
         public ActionResult Index()
@@ -101,6 +104,31 @@ namespace ConsomiTounsiFront.Controllers
             }
         }
 
-        
+        public ActionResult GetUsers()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "getAdmins").Result;
+            var ApiResponse = httpClient.GetAsync(baseAddress + "getUsers").Result;
+            //var ApiResponse = httpClient.GetAsync(baseAddress + "event/getTauxParticipation/" + id.ToString()).Result;
+            if (tokenResponse.IsSuccessStatusCode & ApiResponse.IsSuccessStatusCode)
+            {
+
+                var Users = ApiResponse.Content.ReadAsAsync<Dictionary<string, string>>().Result;
+                var Admins = tokenResponse.Content.ReadAsAsync<Dictionary<string, string>>().Result;
+                ViewBag.Admins = Admins;
+                ViewBag.Users = Users;
+                return View();
+
+                
+                
+            }
+            else
+            {
+                return RedirectToAction("GetEvents", "Event");
+            }
+
+            //return View();
+        }
+
+
     }
 }

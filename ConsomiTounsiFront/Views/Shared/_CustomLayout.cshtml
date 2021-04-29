@@ -83,8 +83,8 @@
                                     <li><a href="account.html">My Account</a></li>
                                     <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
                                     <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                                    <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                    <li class="hidden-xs"><a href="@Url.Action("AddUser", "UserForm")">Register</a></li>
+                                    <li><a href="@Url.Action("Create", "UserLogin")" >Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -187,8 +187,8 @@
                                 <ul class="dropdown-menu">
                                     <li>@Html.ActionLink("Your Donations", "GetUserDonation", "Donation", new { @class = "elements" }, null)</li>
                                     <li>@Html.ActionLink("Donate", "Donate", "Jackpot", new { @class = "elements" }, null)</li>
-                                    <li><a href="#">Formal</a></li>
-                                    <li><a href="#">Standard</a></li>
+                                    <li>@Html.ActionLink("Events", "ListEvent", "Event", new { @class = "elements" }, null)</li>
+                                    <li>@Html.ActionLink("Your Events", "GetUserEvent", "Event", new { @class = "elements" }, null)</li>
                                     <li><a href="#">T-Shirts</a></li>
                                     <li><a href="#">Shirts</a></li>
                                     <li><a href="#">Jeans</a></li>

@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!--   Kitchen Sink -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                List Of Admins
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+
+                                <th>Name</th>
+                                <th>Role</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.Admins)
+                            {
+                                <tr>
+
+                                    <td>@item.Key</td>
+                                    <td>@item.Value</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-6">
+            <!--   Kitchen Sink -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    List of Clients
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>Name</th>
+                                    <th>Role</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.Users)
+                                {
+                                    <tr>
+
+                                        <td>@item.Key</td>
+                                        <td>@item.Value</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    
+                </div>
+            </div>
+            <!-- End  Kitchen Sink -->
+        </div>
+
+    </div>
+

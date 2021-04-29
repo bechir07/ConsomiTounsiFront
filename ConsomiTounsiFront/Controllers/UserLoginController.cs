@@ -46,19 +46,35 @@ namespace ConsomiTounsiFront.Controllers
         [HttpPost]
         public ActionResult Create(UserLogin userlogin)
         {
-            try
-            {
+            
                 var APIResponse = httpClient.PostAsJsonAsync<UserLogin>("http://localhost:8081/ConsomiTounsi/login",
                 userlogin).Result;//.ContinueWith(postTask => postTask.Result.EnsureSuccessStatusCode());
+            
                 var token = APIResponse.Headers.GetValues("Authorization").FirstOrDefault().ToString();
+                var us = APIResponse.Content.ReadAsAsync<User>().Result;
                 Session["AccessToken"] = token;
                 ViewBag.Token = token;
-                return View();//RedirectToAction("Create");
-            }
-            catch
-            {
-                return View();
-            }
+                string role;
+                role = "USER";
+                bool s;
+                s = false;
+                foreach (var item in us.roles)
+                {
+                    if (role.Equals(item.roleName))
+                    {
+                        //return RedirectToAction("ListEvent", "Event");
+                        s = true;
+                    }
+                    
+                }
+
+            if (s == true) { return RedirectToAction("ListEvent", "Event"); }
+
+            else { return RedirectToAction("GetEvents", "Event"); }
+                //return View();
+            
+                
+            
         }
 
         // GET: UserLogin/Edit/5

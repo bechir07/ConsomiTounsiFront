@@ -14,15 +14,18 @@ namespace ConsomiTounsiFront.Controllers
 
         HttpClient httpClient;
         string baseAddress;
-        public UserFormController()
+        String _AccessToken;
+        protected override void OnActionExecuting(ActionExecutingContext ctx)
         {
+            base.OnActionExecuting(ctx);
+
+            _AccessToken = ctx.HttpContext.Session["AccessToken"].ToString();
             baseAddress = "http://localhost:8081/ConsomiTounsi/";
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(baseAddress);
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //var _AccessToken = "eyJhbGciOiJ9.eyJzdWIiOiJiYWNoIiwiZXhwIjoxNjE3MTcwMDY3LCJpYXQiOjE2MTcxNTIwNjcsImF1dGhvcml0aWVzIjpbXX0.wSE6ZXmIP - pLx4xOgtT7gEcKxVav71tYgL5ACp6BgK_F2u90n2LnMVkul9Bvmiou9wfrzgka4CWXSF2d1NmXxA";
-            //httpClient.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", _AccessToken));
-
+            //var _AccessToken = Session["AccessToken"];
+            httpClient.DefaultRequestHeaders.Add("Authorization", String.Format(_AccessToken));
         }
 
         // GET: UserForm
@@ -104,5 +107,66 @@ namespace ConsomiTounsiFront.Controllers
                 return View();
             }
         }
+
+        // POST: Product/Create
+        
+        public ActionResult AddAdmin()
+        {
+            return View();
+        }
+
+        // POST: Product/Create
+        [HttpPost]
+        public ActionResult AddAdmin(UserForm userform)
+        {
+            userform.role = "ADMIN";
+
+            var APIResponse = httpClient.PostAsJsonAsync<UserForm>(baseAddress + "register", userform).Result;
+
+            if (APIResponse.IsSuccessStatusCode)
+            {
+
+
+                var msg = APIResponse.Content.ReadAsStringAsync().Result;
+                //ViewBag.lien = lien;
+                return RedirectToAction("GetUsers","User");
+                //return RedirectToAction("AddDonation");
+                //return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+
+        // POST: Product/Create
+        [HttpPost]
+        public ActionResult AddUser(UserForm userform)
+        {
+            userform.role = "USER";
+
+            var APIResponse = httpClient.PostAsJsonAsync<UserForm>(baseAddress + "register", userform).Result;
+
+            if (APIResponse.IsSuccessStatusCode)
+            {
+
+
+                var msg = APIResponse.Content.ReadAsStringAsync().Result;
+                //ViewBag.lien = lien;
+                return RedirectToAction("Create", "UserLogin");
+                //return RedirectToAction("AddDonation");
+                //return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
+
     }
 }

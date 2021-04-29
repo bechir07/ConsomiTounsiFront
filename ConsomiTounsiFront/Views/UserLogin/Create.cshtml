@@ -32,8 +32,7 @@
                             <div class="col-md-6">
                                 <div class="aa-myaccount-login">
                                     <h4>Login</h4>
-                                    <h2>@ViewBag.Token</h2>
-                                    <u><b>Welcome @Session["AccessToken"]</b></u>
+                                    
                                     @using (Html.BeginForm("Create", "UserLogin", FormMethod.Post, new { @class = "aa-login-form" }))
                                     {
                                         @Html.AntiForgeryToken()
@@ -50,18 +49,7 @@
                                     }
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="aa-myaccount-register">
-                                    <h4>Register</h4>
-                                    <form action="" class="aa-login-form">
-                                        <label for="">Username or Email address<span>*</span></label>
-                                        <input type="text" placeholder="Username or email">
-                                        <label for="">Password<span>*</span></label>
-                                        <input type="password" placeholder="Password">
-                                        <button type="submit" class="aa-browse-btn">Register</button>
-                                    </form>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

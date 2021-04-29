@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="checkout-area">
-                    @using (Html.BeginForm("AjoutDonation", "Donation", FormMethod.Post, new { @class = "panel-collapse collapse in" }))
+                    @using (Html.BeginForm("AjoutDonation", "Donation", FormMethod.Post, null))
                     {
                         @Html.AntiForgeryToken()
                         <hr />
@@ -17,26 +17,30 @@
                             <div class="col-md-8">
                                 <div class="checkout-left">
                                     <div class="panel-group" id="accordion">
-                                        <!-- Coupon section -->
-                                        <div class="panel panel-default aa-checkout-coupon">
+                                        <!-- Login section -->
+                                        <div class="panel panel-default aa-checkout-login">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                        Have a Coupon?
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                        Donation payment
                                                     </a>
                                                 </h4>
-                                                <h4>@ViewBag.lien</h4>
-                                                
                                             </div>
-                                            <div id="collapseOne" class="panel-collapse collapse in">
-
-
+                                            <div id="collapseTwo" class="panel-collapse collapse">
                                                 <div class="panel-body">
-                                                    @Html.EditorFor(model => model.montant, new { htmlAttributes = new { @class = "form-control" } })
+                                                    <label for="">Price<span>*</span></label>
+                                                    @Html.EditorFor(model => model.montant, new { htmlAttributes = new { placeholder = "Your Sum here" } })
                                                     @Html.ValidationMessageFor(model => model.montant, "", new { @class = "text-danger" })
-                                                    <input type="submit" value="Apply Coupon" class="aa-browse-btn">
-                                                </div>
+                                                    <label for="">Jackpot<span>*</span></label>
+                                                    @Html.EditorFor(model => model.jname, new { htmlAttributes = new { placeholder = "Jackpot Name" } })
+                                                    @Html.ValidationMessageFor(model => model.jname, "", new { @class = "text-danger" })
+                                                    <label for="">Name<span>*</span></label>
+                                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { placeholder = "Your Name" } })
+                                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
 
+                                                    <button type="submit" class="aa-browse-btn">Donate</button>
+
+                                                </div>
                                             </div>
                                         </div>
 

@@ -144,7 +144,7 @@ namespace ConsomiTounsiFront.Controllers
 
             
                 var APIResponse = httpClient.PostAsJsonAsync<Donation>(baseAddress + "pay/"+id.ToString(),
-                donation).Result;
+                donation).Result; 
             if (APIResponse.IsSuccessStatusCode)
             {
 
@@ -191,6 +191,40 @@ namespace ConsomiTounsiFront.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult GetDonations()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "donation/getAllDonation").Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var Donations = tokenResponse.Content.ReadAsAsync<IEnumerable<Donation>>().Result;
+                return View(Donations);
+            }
+            else
+            {
+                return View(new List<Donation>());
+            }
+
+            //return View();
+        }
+
+        
+            public ActionResult GetUsersSortedBySumDonation()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "jackpot/getUsersSortedBySumDonation").Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var Donations = tokenResponse.Content.ReadAsAsync<Dictionary<string, double>>().Result;
+                ViewBag.MyDictionary = Donations;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("GetEvents", "Event");
+            }
+
+            //return View();
         }
     }
 }

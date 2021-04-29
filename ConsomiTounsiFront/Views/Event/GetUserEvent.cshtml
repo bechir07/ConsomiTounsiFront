@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ConsomiTounsiFront.Models.Jackpot>
+﻿@model IEnumerable<ConsomiTounsiFront.Models.Event>
 
 @{
     Layout = "~/Views/Shared/_CustomLayout.cshtml";
@@ -10,7 +10,7 @@
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
-                <h2>Jackpot List</h2>
+                <h2>User's Donation Page</h2>
                 <ol class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li class="active">Wishlist</li>
@@ -27,15 +27,17 @@
             <div class="col-md-12">
                 <div class="cart-view-area">
                     <div class="cart-view-table aa-wishlist-table">
-                        
+                        <form action="">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-
-                                            <th>Jackpot</th>
                                             <th>Action</th>
-                                            
+                                            <th>Poster</th>
+                                            <th>Event</th>
+                                            <th>Description</th>
+                                            <th>Place</th>
+                                            <th>Date</th>
 
                                         </tr>
                                     </thead>
@@ -43,17 +45,19 @@
                                         @foreach (var item in Model)
                                         {
                                         <tr>
-
+                                            <td><a class="remove" href="@Url.Action("Delete", "Event",new { id = item.id })"><fa class="fa fa-close"></fa></a></td>
+                                            <td><a href="#"><img src="~/Content/img/man/polo-shirt-1.png" alt="img"></a></td>
                                             <td>@Html.DisplayFor(modelItem => item.name)</td>
-                                            <td>@Html.ActionLink("Donate", "AjoutDonation", "Donation", new { id = item.JackpotId }, new { @class = "aa-add-to-cart-btn" })</td>
-                                            
+                                            <td>@Html.DisplayFor(modelItem => item.description)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.lieu)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.dateev)</td>
 
                                         </tr>
                                         }
                                     </tbody>
                                 </table>
                             </div>
-                        
+                        </form>
                     </div>
                 </div>
             </div>

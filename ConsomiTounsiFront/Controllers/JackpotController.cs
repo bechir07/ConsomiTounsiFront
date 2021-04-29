@@ -120,5 +120,67 @@ namespace ConsomiTounsiFront.Controllers
             }
             //return View();
         }
+        public ActionResult GetJackpots()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "jackpot/getAllJackpot").Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var Jackpots = tokenResponse.Content.ReadAsAsync<IEnumerable<Jackpot>>().Result;
+                return View(Jackpots);
+            }
+            else
+            {
+                return View(new List<Jackpot>());
+            }
+
+            //return View();
+        }
+
+        public ActionResult GetJackpotStats(int id)
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "jackpot/getMaxDonationForJackpot/" + id.ToString()).Result;
+            var ApiResponse = httpClient.GetAsync(baseAddress + "jackpot/getSumDonationForJackpot/" + id.ToString()).Result;
+            var Api = httpClient.GetAsync(baseAddress + "jackpot/getAvgDonationForJackpot/" + id.ToString()).Result;
+            //var ApiResponse = httpClient.GetAsync(baseAddress + "event/getTauxParticipation/" + id.ToString()).Result;
+            if (tokenResponse.IsSuccessStatusCode & ApiResponse.IsSuccessStatusCode)
+            {
+                var max = tokenResponse.Content.ReadAsAsync<double>().Result;
+                var sum = ApiResponse.Content.ReadAsAsync<double>().Result;
+                var avg = Api.Content.ReadAsAsync<double>().Result;
+                var stats = new Dictionary<string, double>();
+                stats.Add("Max Donation", max);
+                stats.Add("Sum Donation", sum);
+                stats.Add("Avg", avg);
+
+
+                ViewBag.msg = stats;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("GetJackpots", "Jackpot");
+            }
+
+            //return View();
+        }
+
+        public ActionResult GetJackpotSortedBySumDonation()
+        {
+            var tokenResponse = httpClient.GetAsync(baseAddress + "jackpot/getJackpotSortedBySumDonation").Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var Jackpots = tokenResponse.Content.ReadAsAsync<Dictionary<string, double>>().Result;
+                ViewBag.MyDictionary = Jackpots;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("GetJackpots", "Jackpot");
+            }
+
+            //return View();
+        }
+
+
     }
 }

@@ -249,6 +249,8 @@
     <Content Include="Content\css\theme-color\purple-theme.css" />
     <Content Include="Content\css\theme-color\red-theme.css" />
     <Content Include="Content\css\theme-color\yellow-theme.css" />
+    <Content Include="Content\img\affiche.png" />
+    <Content Include="Content\img\affiche_2.png" />
     <Content Include="Content\img\bg-img.jpg" />
     <Content Include="Content\img\client-brand-css3.png" />
     <Content Include="Content\img\client-brand-html5.png" />
@@ -438,9 +440,28 @@
     <Content Include="Views\Jackpot\Donate.cshtml" />
     <Content Include="Views\Donation\AddDonation.cshtml" />
     <Content Include="Views\Donation\AjoutDonation.cshtml" />
+    <Content Include="Views\Event\ListEvent.cshtml" />
+    <Content Include="Views\Event\GetUserEvent.cshtml" />
+    <Content Include="Views\Event\Failed.cshtml" />
+    <Content Include="Views\Event\GetEvents.cshtml" />
+    <Content Include="Views\Event\GetEventSortedByParticipation.cshtml" />
+    <Content Include="Views\Event\AjoutEvent.cshtml" />
+    <Content Include="Views\Jackpot\GetJackpots.cshtml" />
+    <Content Include="Views\Event\GetNbreParticipation.cshtml" />
+    <Content Include="Views\Event\GetMaxParticipationForEvent.cshtml" />
+    <Content Include="Views\Event\EditEvent.cshtml" />
+    <Content Include="Views\Shared\_ImageView.cshtml" />
+    <Content Include="Views\Jackpot\GetJackpotStats.cshtml" />
+    <Content Include="Views\Jackpot\GetJackpotSortedBySumDonation.cshtml" />
+    <Content Include="Views\Donation\GetDonations.cshtml" />
+    <Content Include="Views\Donation\GetUsersSortedBySumDonation.cshtml" />
+    <Content Include="Views\User\GetUsers.cshtml" />
+    <Content Include="Views\UserForm\AddAdmin.cshtml" />
+    <Content Include="Views\UserForm\AddUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

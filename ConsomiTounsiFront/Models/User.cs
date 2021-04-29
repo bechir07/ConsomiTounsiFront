@@ -11,6 +11,7 @@ namespace ConsomiTounsiFront.Models
         public User()
         {
             this.donations = new HashSet<Donation>();
+            this.roles = new HashSet<Role>();
         }
 
         [Key]

@@ -18,6 +18,10 @@ namespace ConsomiTounsiFront.Models
 
         [Required(ErrorMessage = "Name Required")]
         [StringLength(25, ErrorMessage = "Must be less than 25 characters")]
+        public string name { get; set; }
+
+        [Required(ErrorMessage = "Name Required")]
+        [StringLength(25, ErrorMessage = "Must be less than 25 characters")]
         public string jname { get; set; }
 
         // foreign Key properties

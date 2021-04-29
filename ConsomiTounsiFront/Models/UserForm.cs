@@ -10,7 +10,7 @@ namespace ConsomiTounsiFront.Models
     {
         [Required(ErrorMessage = "RoleName is required")]
         [MinLength(12)]
-        private string role;
+        public string role { get; set; }
         [Required(ErrorMessage = "Username Required")]
         [StringLength(25, ErrorMessage = "Must be less than 25 characters")]
         public string username { get; set; }
@@ -18,7 +18,7 @@ namespace ConsomiTounsiFront.Models
         [Required(ErrorMessage = "Confirm Password is required")]
         [DataType(DataType.Password)]
         [Compare("password")]
-        public string ConfirmPassword { get; set; }
+        public string confirmedPassword { get; set; }
 
         private string Password;
         [Required(ErrorMessage = "Password is required")]
